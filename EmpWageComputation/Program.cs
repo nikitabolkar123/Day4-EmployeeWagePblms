@@ -6,11 +6,18 @@ namespace EmpWageComputation
     {
         static void Main(string[] args)
         {
-            int wagePerHr = 20;
-            int wage = 0, empHr = 0;
+            int isPartTime = 1;
+            int isFullTime = 2;
+            int empRatePerHr = 20;
+            int empHr = 0;
+            int empWage = 0;
             Random random = new Random();
-            int check = random.Next(0, 2);
-            if (check == 0)
+            int empCheck = random.Next(0, 3);
+            if (empCheck == isPartTime)
+            {
+                empHr = 4;
+            }
+            else if (empCheck == isFullTime)
             {
                 empHr = 8;
             }
@@ -18,9 +25,8 @@ namespace EmpWageComputation
             {
                 empHr = 0;
             }
-
-            wage = wagePerHr * empHr;
-            Console.WriteLine("Total Wage=" + wage);
+            empWage = empHr * empRatePerHr;
+            Console.WriteLine("EmpWage=" + empWage);
         }
     }
 }
